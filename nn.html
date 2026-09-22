@@ -1,0 +1,518 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores Amarillas 🌻</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow: hidden;
+            font-family: Georgia, serif;
+            background:
+                radial-gradient(circle at 50% 40%, #493500 0%, #171000 45%, #050505 100%);
+            color: white;
+        }
+
+        /* Brillo del fondo */
+        .luz {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 193, 7, 0.12);
+            border-radius: 50%;
+            filter: blur(100px);
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: respirar 4s infinite alternate;
+        }
+
+        @keyframes respirar {
+            from {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0.5;
+            }
+
+            to {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 1;
+            }
+        }
+
+        /* Título */
+        .titulo {
+            position: absolute;
+            top: 40px;
+            width: 100%;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .titulo h1 {
+            font-size: clamp(35px, 6vw, 75px);
+            color: #ffd83d;
+            text-shadow:
+                0 0 10px #ffcc00,
+                0 0 30px #ffb300,
+                0 0 60px #ff9800;
+            animation: brillo 2s infinite alternate;
+        }
+
+        .titulo p {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #fff4b0;
+            letter-spacing: 3px;
+        }
+
+        @keyframes brillo {
+            from {
+                text-shadow:
+                    0 0 10px #ffcc00,
+                    0 0 20px #ffb300;
+            }
+
+            to {
+                text-shadow:
+                    0 0 20px #fff176,
+                    0 0 50px #ffc107,
+                    0 0 80px #ff9800;
+            }
+        }
+
+        /* Jardín */
+        .jardin {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 70%;
+        }
+
+        /* Flor */
+        .flor {
+            position: absolute;
+            bottom: 0;
+            width: 140px;
+            height: 400px;
+            transform-origin: bottom center;
+            animation: balanceo 4s ease-in-out infinite;
+        }
+
+        .flor:nth-child(1) {
+            left: 5%;
+            transform: scale(0.8);
+            animation-delay: -1s;
+        }
+
+        .flor:nth-child(2) {
+            left: 20%;
+            transform: scale(1.1);
+            animation-delay: -2s;
+        }
+
+        .flor:nth-child(3) {
+            left: 40%;
+            transform: scale(0.9);
+            animation-delay: -0.5s;
+        }
+
+        .flor:nth-child(4) {
+            left: 60%;
+            transform: scale(1.2);
+            animation-delay: -1.5s;
+        }
+
+        .flor:nth-child(5) {
+            left: 80%;
+            transform: scale(0.85);
+            animation-delay: -3s;
+        }
+
+        @keyframes balanceo {
+            0%, 100% {
+                transform: rotate(-3deg);
+            }
+
+            50% {
+                transform: rotate(4deg);
+            }
+        }
+
+        /* Tallo */
+        .tallo {
+            position: absolute;
+            width: 8px;
+            height: 280px;
+            background: linear-gradient(to right, #174d17, #43a047, #174d17);
+            left: 66px;
+            bottom: 0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+        }
+
+        /* Hojas */
+        .hoja {
+            position: absolute;
+            width: 65px;
+            height: 30px;
+            background: linear-gradient(135deg, #2e7d32, #66bb6a);
+            border-radius: 100% 0 100% 0;
+        }
+
+        .hoja1 {
+            left: 5px;
+            bottom: 120px;
+            transform: rotate(25deg);
+        }
+
+        .hoja2 {
+            left: 50px;
+            bottom: 180px;
+            transform: rotate(155deg);
+        }
+
+        /* Cabeza de la flor */
+        .cabeza {
+            position: absolute;
+            top: 20px;
+            left: 5px;
+            width: 130px;
+            height: 130px;
+        }
+
+        /* Pétalos */
+        .petalo {
+            position: absolute;
+            width: 48px;
+            height: 75px;
+            background: linear-gradient(to bottom, #fff176, #ffc107, #ff9800);
+            border-radius: 50% 50% 45% 45%;
+            left: 41px;
+            top: 0;
+            transform-origin: 24px 65px;
+            box-shadow:
+                0 0 12px #ffc107,
+                inset 0 0 8px rgba(255,255,255,0.5);
+        }
+
+        .petalo:nth-child(1) {
+            transform: rotate(0deg);
+        }
+
+        .petalo:nth-child(2) {
+            transform: rotate(45deg);
+        }
+
+        .petalo:nth-child(3) {
+            transform: rotate(90deg);
+        }
+
+        .petalo:nth-child(4) {
+            transform: rotate(135deg);
+        }
+
+        .petalo:nth-child(5) {
+            transform: rotate(180deg);
+        }
+
+        .petalo:nth-child(6) {
+            transform: rotate(225deg);
+        }
+
+        .petalo:nth-child(7) {
+            transform: rotate(270deg);
+        }
+
+        .petalo:nth-child(8) {
+            transform: rotate(315deg);
+        }
+
+        /* Centro */
+        .centro {
+            position: absolute;
+            width: 55px;
+            height: 55px;
+            background: radial-gradient(circle, #5d3500, #2b1700);
+            border-radius: 50%;
+            left: 38px;
+            top: 38px;
+            z-index: 5;
+            box-shadow:
+                0 0 10px #ff9800,
+                0 0 25px #ffb300;
+        }
+
+        /* Pétalos flotantes */
+        .petalo-flotante {
+            position: absolute;
+            width: 18px;
+            height: 30px;
+            background: linear-gradient(#fff176, #ffc107);
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: caer linear infinite;
+        }
+
+        @keyframes caer {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(110vh) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .p1 {
+            left: 10%;
+            animation-duration: 8s;
+        }
+
+        .p2 {
+            left: 25%;
+            animation-duration: 11s;
+            animation-delay: 2s;
+        }
+
+        .p3 {
+            left: 45%;
+            animation-duration: 9s;
+            animation-delay: 4s;
+        }
+
+        .p4 {
+            left: 70%;
+            animation-duration: 12s;
+            animation-delay: 1s;
+        }
+
+        .p5 {
+            left: 90%;
+            animation-duration: 10s;
+            animation-delay: 3s;
+        }
+
+        /* Estrellas/brillos */
+        .brillo {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: #fff8c4;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #ffd740;
+            animation: aparecer 2s infinite alternate;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0.2;
+                transform: scale(0.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1.5);
+            }
+        }
+
+        .b1 { top: 20%; left: 15%; }
+        .b2 { top: 30%; left: 30%; animation-delay: 1s; }
+        .b3 { top: 18%; left: 70%; animation-delay: .5s; }
+        .b4 { top: 40%; left: 85%; animation-delay: 1.5s; }
+        .b5 { top: 55%; left: 50%; animation-delay: .8s; }
+
+        /* Suelo */
+        .suelo {
+            position: absolute;
+            bottom: -100px;
+            left: -5%;
+            width: 110%;
+            height: 180px;
+            background: radial-gradient(
+                ellipse,
+                #172b12 0%,
+                #0c1709 55%,
+                transparent 70%
+            );
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            .flor {
+                width: 100px;
+                transform: scale(0.65);
+            }
+
+            .flor:nth-child(1) {
+                left: -5%;
+            }
+
+            .flor:nth-child(2) {
+                left: 18%;
+            }
+
+            .flor:nth-child(3) {
+                left: 40%;
+            }
+
+            .flor:nth-child(4) {
+                left: 62%;
+            }
+
+            .flor:nth-child(5) {
+                left: 82%;
+            }
+
+            .titulo p {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="luz"></div>
+
+    <div class="titulo">
+        <h1>Flores Amarillas 🌻</h1>
+        <p> PARA VANIA</p>
+    </div>
+
+    <!-- Brillos -->
+    <div class="brillo b1"></div>
+    <div class="brillo b2"></div>
+    <div class="brillo b3"></div>
+    <div class="brillo b4"></div>
+    <div class="brillo b5"></div>
+
+    <!-- Pétalos cayendo -->
+    <div class="petalo-flotante p1"></div>
+    <div class="petalo-flotante p2"></div>
+    <div class="petalo-flotante p3"></div>
+    <div class="petalo-flotante p4"></div>
+    <div class="petalo-flotante p5"></div>
+
+    <div class="jardin">
+
+        <!-- Flor 1 -->
+        <div class="flor">
+            <div class="cabeza">
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="centro"></div>
+            </div>
+
+            <div class="tallo"></div>
+            <div class="hoja hoja1"></div>
+            <div class="hoja hoja2"></div>
+        </div>
+
+        <!-- Flor 2 -->
+        <div class="flor">
+            <div class="cabeza">
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="centro"></div>
+            </div>
+
+            <div class="tallo"></div>
+            <div class="hoja hoja1"></div>
+            <div class="hoja hoja2"></div>
+        </div>
+
+        <!-- Flor 3 -->
+        <div class="flor">
+            <div class="cabeza">
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="centro"></div>
+            </div>
+
+            <div class="tallo"></div>
+            <div class="hoja hoja1"></div>
+            <div class="hoja hoja2"></div>
+        </div>
+
+        <!-- Flor 4 -->
+        <div class="flor">
+            <div class="cabeza">
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="centro"></div>
+            </div>
+
+            <div class="tallo"></div>
+            <div class="hoja hoja1"></div>
+            <div class="hoja hoja2"></div>
+        </div>
+
+        <!-- Flor 5 -->
+        <div class="flor">
+            <div class="cabeza">
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="centro"></div>
+            </div>
+
+            <div class="tallo"></div>
+            <div class="hoja hoja1"></div>
+            <div class="hoja hoja2"></div>
+        </div>
+
+    </div>
+
+    <div class="suelo"></div>
+
+</body>
+</html>
+```
